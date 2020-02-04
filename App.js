@@ -8,17 +8,30 @@ export default function App() {
 
   const styles = StyleSheet.create({
     main: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+      padding: 50
     },
+    inputView: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    },
+    textInput: {
+      borderBottomColor: 'black',
+      borderBottomWidth: 1,
+      width: '80%'
+    }
   });
 
 
   return (
     <View style={styles.main}>
-      <Text>React Native To Do List</Text>
+      <View style={styles.inputView}>
+        <TextInput placeholder="Enter a Goal" style={styles.textInput} />
+        <Button title="Add" />
+      </View>
+      <View>
+
+      </View>
     </View>
   );
 }
