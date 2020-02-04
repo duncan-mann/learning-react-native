@@ -6,12 +6,14 @@ export default function App() {
   const [backgroundColor, changeBackgroundColor] = useState('#fff');
   const [colourText, changeColourText] = useState('Enter a Colour');
   const [toDo, setToDo] = useState('');
+  const [toDoList, setToDoList] = useState([]);
 
   const setGoal = (text) => {
     setToDo(text);
   }
 
   const addGoal = () => {
+    setToDoList(currentList => [...currentList, toDo]);
     console.log(toDo);
   }
 
@@ -22,7 +24,14 @@ export default function App() {
         <Button title="Add" onPress={addGoal} />
       </View>
       <View>
+        {toDoList.map((goal) => {
+          return (
+              <View style={styles.toDoItem}>
+                <Text>{goal}</Text>
+              </View>
+            )
 
+        })}
       </View>
     </View>
   );
@@ -41,6 +50,14 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     borderBottomWidth: 1,
     width: '80%'
+  },
+  toDoItem: {
+    padding: 10,
+    margin: 5,
+    backgroundColor: '#ccc',
+    borderRadius: 10,
+    borderColor: 'black',
+    borderWidth: 1
   }
 });
 
