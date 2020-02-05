@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput, FlatList } from 'react-native';
-import Item from './components/Item';
+import ItemList from './components/ItemList';
 export default function App() {
 
   const [backgroundColor, changeBackgroundColor] = useState('#fff');
@@ -29,13 +29,7 @@ export default function App() {
         <TextInput placeholder="Enter a Goal" style={styles.textInput} onChangeText={setGoal} value={toDo} />
         <Button title="Add" onPress={addGoal} />
       </View>
-      <FlatList 
-        data={toDoList} 
-        renderItem={itemData => {
-          return (
-        <Item title={itemData.item.val} />
-      )}}>
-      </FlatList>
+      <ItemList toDoList={toDoList} />
     </View>
   );
 }
