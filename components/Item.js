@@ -1,11 +1,12 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const Item = (props) => {
     return (
-        <View style={styles.toDoItem}>
+        <LinearGradient colors={['#9cecfb', '#65c7f7', '#0052d4']} style={styles.toDoItem}>
             <Text>{props.title}</Text>
-      </View>
+        </LinearGradient>
     )
 }
 
@@ -19,7 +20,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         flexDirection: 'row',
         justifyContent: 'center'
-      }
+      },
+
 })
 
 export default Item

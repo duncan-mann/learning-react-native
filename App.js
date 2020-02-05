@@ -13,10 +13,14 @@ export default function App() {
   }
 
   const addGoal = () => {
+    if (toDo !== '') {
     setToDoList(currentList => [...currentList, {key: currentList.length.toString(), val: toDo}]);
     setToDo('');
     console.log(toDo);
     console.log('list', toDoList)
+    } else {
+      console.log('empty string, enter an item');
+    }
   }
 
   return (
