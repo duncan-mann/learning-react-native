@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput, FlatList } from 'react-native';
 import ItemList from './components/ItemList';
+import Input from './components/Input'
+
 export default function App() {
 
   const [backgroundColor, changeBackgroundColor] = useState('#fff');
@@ -14,10 +16,8 @@ export default function App() {
 
   const addGoal = () => {
     if (toDo !== '') {
-    setToDoList(currentList => [...currentList, {key: currentList.length.toString(), val: toDo}]);
-    setToDo('');
-    console.log(toDo);
-    console.log('list', toDoList)
+      setToDoList(currentList => [...currentList, { key: currentList.length.toString(), val: toDo }]);
+      setToDo('');
     } else {
       console.log('empty string, enter an item');
     }
@@ -25,10 +25,7 @@ export default function App() {
 
   return (
     <View style={styles.main}>
-      <View style={styles.inputView}>
-        <TextInput placeholder="Enter a Goal" style={styles.textInput} onChangeText={setGoal} value={toDo} />
-        <Button title="Add" onPress={addGoal} />
-      </View>
+      <Input setGoal={setGoal} addGoal={addGoal} toDo={toDo} />
       <ItemList toDoList={toDoList} />
     </View>
   );
@@ -37,16 +34,6 @@ export default function App() {
 const styles = StyleSheet.create({
   main: {
     padding: 50
-  },
-  inputView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  textInput: {
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
-    width: '80%'
   }
 });
 
