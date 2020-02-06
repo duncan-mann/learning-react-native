@@ -36,6 +36,10 @@ export default function App() {
     setModalVis(val);
   }
 
+  
+
+
+
   return (
     <View style={styles.main}>
       <Button title="+" onPress={() => toggleModal(true)}></Button>
