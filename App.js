@@ -15,18 +15,25 @@ export default function App() {
   }
 
   const addGoal = () => {
-    if (toDo !== '') {
-      setToDoList(currentList => [...currentList, { key: currentList.length.toString(), val: toDo }]);
+    if (toDo !== '' ) {
+      setToDoList(currentList => [...currentList, { key: (currentList.length + 1).toString(), val: toDo }]);
       setToDo('');
     } else {
       console.log('empty string, enter an item');
     }
+    console.log(toDoList)
+  }
+
+  const removeGoal = goalId => {
+    setToDoList(currentList => {
+      return currentList.filter(each => each.key !== goalId)
+    })
   }
 
   return (
     <View style={styles.main}>
       <Input setGoal={setGoal} addGoal={addGoal} toDo={toDo} />
-      <ItemList toDoList={toDoList} />
+      <ItemList toDoList={toDoList} onRemove={removeGoal}/>
     </View>
   );
 }
