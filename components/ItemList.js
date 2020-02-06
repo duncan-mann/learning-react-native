@@ -8,7 +8,7 @@ const ItemList = (props) => {
         data={props.toDoList} 
         renderItem={itemData => {
           return (
-        <Item title={itemData.item.val} />
+        <Item title={itemData.item.val} onDelete={() => props.onRemove(itemData.item.key)} />
       )}}>
       </FlatList>
     )
