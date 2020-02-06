@@ -36,10 +36,16 @@ export default function App() {
     setModalVis(val);
   }
 
+  
+const cancelModal = () => {
+  setModalVis(false);
+}
+
+
   return (
     <View style={styles.main}>
       <Button title="+" onPress={() => toggleModal(true)}></Button>
-      <Input setGoal={setGoal} addGoal={addGoal} toDo={toDo} modalVis={modalVis} />
+      <Input setGoal={setGoal} addGoal={addGoal} toDo={toDo} modalVis={modalVis} cancel={cancelModal}/>
       <ItemList toDoList={toDoList} onRemove={removeGoal}/>
     </View>
   );
