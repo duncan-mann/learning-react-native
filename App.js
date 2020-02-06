@@ -23,6 +23,7 @@ export default function App() {
       console.log('empty string, enter an item');
     }
     console.log(toDoList)
+    setModalVis(false);
   }
 
   const removeGoal = goalId => {
