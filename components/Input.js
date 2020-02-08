@@ -6,8 +6,10 @@ const Input = (props) => {
       <Modal visible={props.modalVis} animated="slide">
         <View style={styles.inputView}>
         <TextInput placeholder="Enter a Goal" style={styles.textInput} onChangeText={props.setGoal} value={props.toDo} />
-        <Button title="Add" onPress={props.addGoal} />
-        <Button title="Cancel" onPress={props.cancel} color='red'/>
+        <View style={styles.buttonContainer}>
+          <Button title="Cancel" onPress={props.cancel} color='red'/>
+          <Button title="Add" onPress={props.addGoal} />
+        </View>
       </View>
       </Modal>
     )
@@ -24,7 +26,10 @@ const styles = StyleSheet.create({
       borderBottomWidth: 1,
       width: '80%',
       color: 'black'
-
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between'
     }
   });
 
