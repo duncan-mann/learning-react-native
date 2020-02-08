@@ -7,7 +7,7 @@ const Input = (props) => {
         <View style={styles.inputView}>
         <TextInput placeholder="Enter a Goal" style={styles.textInput} onChangeText={props.setGoal} value={props.toDo} />
         <Button title="Add" onPress={props.addGoal} />
-        <Button title="Cancel" onPress={props.cancel} />
+        <Button title="Cancel" onPress={props.cancel} color='red'/>
       </View>
       </Modal>
     )
@@ -22,7 +22,9 @@ const styles = StyleSheet.create({
     textInput: {
       borderBottomColor: 'black',
       borderBottomWidth: 1,
-      width: '80%'
+      width: '80%',
+      color: 'black'
+
     }
   });
 
